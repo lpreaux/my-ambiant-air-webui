@@ -1,0 +1,12 @@
+<thead
+  class="text-xs text-slate-700 uppercase bg-slate-100 dark:bg-slate-700 dark:text-slate-400">
+  <tr>
+    @for (columnHeader of data; track columnHeader.data) {
+      <app-table-column-header
+        [data]="columnHeader.data"
+        [options]="columnHeader.options"></app-table-column-header>
+    } @empty {
+      <p class="text-red-500">No headers where configured</p>
+    }
+  </tr>
+</thead>

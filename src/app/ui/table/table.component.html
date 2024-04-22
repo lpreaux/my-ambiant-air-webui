@@ -1,0 +1,27 @@
+<div
+  class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+  <app-table-header *ngIf="showHeader"></app-table-header>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <app-table-head [data]="getColumnHeaderConfig()"></app-table-head>
+      <tbody>
+        @if (data.page.totalElements === 0) {
+          <app-table-row
+            [lineIndex]="-1"
+            [data]="['Nothing to show.']"></app-table-row>
+        } @else {
+          @for (element of getElements(); track element) {
+            <app-table-row
+              [lineIndex]="$index"
+              [data]="getRowData(element)"
+              (rowClicked)="onElementClicked($event)"></app-table-row>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+  <app-table-footer
+    *ngIf="showFooter"
+    [options]="getFooterOptions()"
+    (pageSelected)="pageSelected.emit($event)"></app-table-footer>
+</div>

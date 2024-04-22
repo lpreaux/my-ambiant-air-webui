@@ -1,0 +1,5 @@
+<p>simple-map works!</p>
+<div class="h-dvh">
+  <app-osm-map class="h-full" (map$)="receiveMap($event)"></app-osm-map>
+  <leaflet-loading-control [map]="map"></leaflet-loading-control>
+</div>

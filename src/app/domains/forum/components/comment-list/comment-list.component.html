@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-2">
+  @for (comment of comments; track comment.id) {
+    <app-comment-post [comment]="comment"></app-comment-post>
+  }
+</div>

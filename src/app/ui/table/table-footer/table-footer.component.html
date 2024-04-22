@@ -1,0 +1,21 @@
+<nav
+  class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
+  aria-label="Table navigation">
+  <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+    Showing
+    <span class="font-semibold text-gray-900 dark:text-white"
+      >{{ options.page.number * options.page.size }}-{{
+        (options.page.number + 1) * options.page.size
+      }}</span
+    >
+    of
+    <span class="font-semibold text-gray-900 dark:text-white">{{
+      options.page.totalElements
+    }}</span>
+  </span>
+  <app-pagination
+    [currentPage]="options.page.number"
+    [totalPages]="options.page.totalPages"
+    [links]="options.links"
+    (pageSelected)="pageSelected.emit($event)"></app-pagination>
+</nav>

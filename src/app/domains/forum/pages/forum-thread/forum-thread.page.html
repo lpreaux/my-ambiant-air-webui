@@ -1,0 +1,15 @@
+<section class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 z-10 relative">
+  <h1
+    class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+    {{ thread()?.title }}
+  </h1>
+</section>
+<section class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 z-10 relative">
+  <app-comment-post-form
+    (messageSubmitted)="OnMessageSubmitted($event)"></app-comment-post-form>
+</section>
+<section class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 z-10 relative">
+  <app-comment-list
+    *ngIf="posts() as posts"
+    [comments]="posts"></app-comment-list>
+</section>

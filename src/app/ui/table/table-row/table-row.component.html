@@ -1,0 +1,11 @@
+<tr
+  class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+  (click)="onRowClicked()">
+  @if (data[0]) {
+    <app-table-row-header [data]="data[0]"></app-table-row-header>
+  }
+
+  @for (element of data.slice(1); track element) {
+    <app-table-cell [data]="element"></app-table-cell>
+  }
+</tr>
